@@ -1,0 +1,62 @@
+---
+title: "Course Project: Shiny Application and Reproducible Pitch"
+author: "Maxwell"
+date: "10/11/2020"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The application  
+This application  Estimates the fuel consume  by a car, based on:
+
+- its Weight (1000 lbs) 
+- its Displacement (cu.in.) 
+- its Transmission type (0 = automatic, 1 = manual) 
+
+The user set the car data, then push the button Apply Changes
+
+The application will calculate the estimated MPG and show a plot with other car models
+
+
+## Slide with a Graph
+
+```{r plot,  message=FALSE,warning=FALSE}
+data(mtcars)
+library(ggplot2)
+library(plotly)
+
+fig <- plot_ly(
+  mtcars, x = ~wt, y = ~mpg,
+  # Hover text:
+  text = ~paste("MPG: ", mpg, 'weight:', wt),
+  color = ~hp, size = ~disp
+)
+
+fig
+
+```
+
+
+## Slide with code
+```{r, summary}
+
+summary(mtcars[,1:9])
+
+```
+
+## Additional Information
+
+Application:
+https://maxmonteiro2008.shinyapps.io/CarMpg_Estimation/
+
+
+Git repository:
+
+
+
+
